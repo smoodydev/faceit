@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .eye {
+            position: absolute;
+            top: 38%;
+            width: 8%;
+            z-index: -1;
+        }
+        #mask{
+            width: 100%;
+        }
+        #left {
+            left: 33%;
+        }
+        #right{
+            right: 33%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="space" style="height:100px">
+
+        </div>
+        sdfsdflkjsdf
+        sdfsdflkjsdfsdfsdf
+        sdfsdflkjsdffsd sd
+        sd fsd fsd
+        ds fs
+        <div class="row">
+            <div class="col-12 offset-md-3 col-sm-6" style="padding:0; border: 3px">
+                <div id="face">
+                    <img id="mask" src="faceMask.png" alt="eyeright">
+
+                    <img id="left" class="eye" src="eye.png" alt="Mask">
+                    <img id="right" class="eye" src="eye.png" alt="eyeleft">
+
+                </div>
+                
+            </div>
+            <div class="col-12 offset-md-3 col-sm-6">
+                <input id="username"  autocomplete="off" type="text" style="width: 100%;">
+                <input id="password" type="text" style="width: 100%;">
+            </div>
+            
+
+        </div>
+
+    </div>
+    <script>
+        let username = document.getElementById("username");
+        username.addEventListener("focus", eyeball);
+        username.addEventListener("input", eyeball);
+        username.addEventListener("focusout", lookOn);
+        function eyeball() {
+            console.log("Change")
+            let gg = username.value.length;
+            let x = 30;
+            let perc = Math.floor(gg / 4);
+            x += perc*.5
+            var left = document.getElementById("left");
+            left.style.left = x.toString()+"%";
+            left.style.top = "40%";
+            var right = document.getElementById("right");
+            right.style.left =
+                (x+26).toString()+"%";;
+            right.style.top = "40%";
+        }
+        function lookOn(){
+            var left = document.getElementById("left");
+            left.style.left = "33%";
+            left.style.top = "38%";
+            var right = document.getElementById("right");
+            right.style.left = "59%";
+            right.style.top = "38%";
+        }
+    </script>
+</body>
+
+</html>
