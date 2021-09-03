@@ -77,10 +77,16 @@
         username.addEventListener("input", eyeball);
         username.addEventListener("focusout", lookOn);
         function eyeball() {
-            console.log("Change")
+            console.log(window.innerWidth)
+            let letterMultiplier = 4;
+            if (window.innerWidth >= 1200){
+                letterMultiplier = 6
+            }else if (window.innerWidth >= 900){
+                letterMultiplier = 5;
+            }
             let gg = username.value.length;
             let x = 30;
-            let perc = Math.floor(gg / 4);
+            let perc = Math.floor(gg / letterMultiplier);
             x += perc*.5
             var left = document.getElementById("left");
             left.style.left = x.toString()+"%";
